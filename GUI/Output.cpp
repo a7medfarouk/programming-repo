@@ -2,6 +2,7 @@
 
 //wwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 // rod ya abdelrahman
+//it works :)
 Output::Output()
 {
 	//Initialize user interface parameters
