@@ -71,9 +71,24 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//To control the order of these images in the menu, 
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
+	//MenuItemImages[ITM_START] = "images\\start2.jpg";
+	//MenuItemImages[ITM_END] = "images\\start2.jpg";
 	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\Assign.jpg";
+	MenuItemImages[ITM_VAR_ASSIGN] = "images\\Assign.jpg";
+	MenuItemImages[ITM_OPER_ASSIGN] = "images\\Assign.jpg";
 	MenuItemImages[ITM_COND] = "images\\Condition.jpg";
+	MenuItemImages[ITM_READ] = "images\\read.jpg";
+	MenuItemImages[ITM_WRITE] = "images\\read.jpg";
+	MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
+	MenuItemImages[ITM_SELECT] = "images\\select icon.jpg";
+	MenuItemImages[ITM_EDIT_STAT] = "images\\editicon.jpg";
+	MenuItemImages[ITM_COPY] = "images\\copy.jpg";
+	MenuItemImages[ITM_CUT] = "images\\cut.jpg";
+	MenuItemImages[ITM_PASTE] = "images\\paste.jpg";
+	MenuItemImages[ITM_SAVE] = "images\\save.jpg";
+	//MenuItemImages[ITM_SWITCH_SIM_MODE] = "images\\switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
+
 	//TODO: Prepare images for each menu item and add it to the list
 
 

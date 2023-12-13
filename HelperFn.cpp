@@ -1,5 +1,10 @@
 //test
 #include "HelperFn.h"
+//DA TESTTTTTTTTTTTTTTT
+/// <summary>
+/// </summary>
+/// <param name="input"></param>
+/// <returns></returns>
 
 bool IsValue (string input)
 {
@@ -13,7 +18,7 @@ bool IsValue (string input)
 	return false;
 }
 
-bool IsVariable (string input)
+bool IsVariable(string input)
 {
 	// checks if the input string is a variable name
 	// return true if it can be a variable name, false otherwise
