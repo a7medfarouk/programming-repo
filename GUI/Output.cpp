@@ -1,6 +1,7 @@
 #include "Output.h"
 
 //wwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+//ay 7aga
 Output::Output()
 {
 	//Initialize user interface parameters
