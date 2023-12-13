@@ -2,7 +2,7 @@
 #include "HelperFn.h"
 
 
-//tesstmmmmmmmmmmm
+//tesstmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 bool IsValue (string input)
 {
 	// checks if the input string is a double value
