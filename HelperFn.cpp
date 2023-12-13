@@ -1,6 +1,6 @@
 //test
 #include "HelperFn.h"
-
+//jjjj
 bool IsValue (string input)
 {
 	// checks if the input string is a double value
