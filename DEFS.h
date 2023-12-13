@@ -49,7 +49,7 @@ enum ActionType // The actions supported
 	STATUS 		   //A click on the status bar
 };
 
-// TODO: you should add more items
+// TODO: you should add more items wwwwwwwwwww
 enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 {
 	//Note: Items are ordered here as they appear in menu
