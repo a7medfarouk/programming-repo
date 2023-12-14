@@ -2,6 +2,7 @@
 
 //wwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 //ay 7aga
+//any commenttttttttt
 Output::Output()
 {
 	//Initialize user interface parameters
@@ -168,6 +169,23 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 	pWind->DrawString(Left.x+width/4, Left.y + height/4, Text);
 }
 
+//void Output::drawcond(Point*no2ta, int width, int height, string text)
+//{
+
+	//pWind->SetPen(UI.HighlightColor, 3);
+	//Draw the statement block rectangle
+	//pWind->DrawRectangle( no2ta[1].x, left.y, left.x + width, left.y + height);
+	//pWind->SetPen(BLACK, 2);
+	//pWind->DrawString(left.x + width / 4, left.y + height / 4, text);
+//}
+// 
+//void Output::draw
+//void Output::drawelipse(Point elli,int width,int height) 
+//{
+	//pWind->DrawEllipse(elli.x, elli.y, elli.x + width, elli.y + height);
+	//pWind->DrawString(elli.x + width / 4, elli.y + height / 4, text);
+	//pWind->SetPen(BLACK, 2);
+//}
 //TODO: Add similar functions for drawing all other statements.
 //		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 //		Decide the parameters that should be passed to each of them
