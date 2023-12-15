@@ -15,7 +15,7 @@ Output::Output()
 
 	UI.StatusBarHeight = 50;
 	UI.ToolBarHeight = 50;
-	UI.MenuItemWidth = 80;
+	UI.MenuItemWidth = 50;
 	UI.DrawingAreaWidth = 0.75 * UI.width;
 
 	UI.DrawColor = BLUE;
@@ -72,25 +72,26 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//To control the order of these images in the menu, 
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
-	//MenuItemImages[ITM_START] = "images\\start2.jpg";
-	//MenuItemImages[ITM_END] = "images\\start2.jpg";
+	/*MenuItemImages[ITM_START] = "images\\start1.jpg";
+	MenuItemImages[ITM_END] = "images\\start1.jpg";
 	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\Assign.jpg";
 	MenuItemImages[ITM_VAR_ASSIGN] = "images\\Assign.jpg";
 	MenuItemImages[ITM_OPER_ASSIGN] = "images\\Assign.jpg";
-	MenuItemImages[ITM_COND] = "images\\Condition.jpg";
-	MenuItemImages[ITM_READ] = "images\\read.jpg";
-	MenuItemImages[ITM_WRITE] = "images\\read.jpg";
-	MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
-	MenuItemImages[ITM_SELECT] = "images\\select icon.jpg";
-	MenuItemImages[ITM_EDIT_STAT] = "images\\editicon.jpg";
-	MenuItemImages[ITM_COPY] = "images\\copy.jpg";
-	MenuItemImages[ITM_CUT] = "images\\cut.jpg";
-	MenuItemImages[ITM_PASTE] = "images\\paste.jpg";
-	MenuItemImages[ITM_SAVE] = "images\\save.jpg";
-	//MenuItemImages[ITM_SWITCH_SIM_MODE] = "images\\switch.jpg";
-	MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
+	MenuItemImages[ITM_COND] = "images\\Condition.jpg";*/
+	//MenuItemImages[ITM_READ] = "images\\read.jpg";
+	//MenuItemImages[ITM_WRITE] = "images\\read.jpg";
+	//MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
+	//MenuItemImages[ITM_SELECT] = "images\\select icon.jpg";
+	//MenuItemImages[ITM_EDIT_STAT] = "images\\editicon.jpg";
+	//MenuItemImages[ITM_DELETE] = "images\\delete.jpg";
+	//MenuItemImages[ITM_COPY] = "images\\copy.jpg";
+	//MenuItemImages[ITM_CUT] = "images\\cut.jpg";
+	//MenuItemImages[ITM_PASTE] = "images\\paste.jpg";
+	//MenuItemImages[ITM_SAVE] = "images\\Save.jpg";
+	////MenuItemImages[ITM_SWITCH_SIM_MODE] = "images\\switch.jpg";
+	//MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
 
-	//TODO: Prepare images for each menu item and add it to the list
+
 
 
 	//Draw menu item one image at a time
@@ -168,24 +169,82 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 	pWind->SetPen(BLACK, 2);
 	pWind->DrawString(Left.x+width/4, Left.y + height/4, Text);
 }
+void Output::Drawconnector(Point Left, int width, int height, bool Selected)
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
 
-//void Output::drawcond(Point*no2ta, int width, int height, string text)
-//{
-
-	//pWind->SetPen(UI.HighlightColor, 3);
 	//Draw the statement block rectangle
-	//pWind->DrawRectangle( no2ta[1].x, left.y, left.x + width, left.y + height);
-	//pWind->SetPen(BLACK, 2);
-	//pWind->DrawString(left.x + width / 4, left.y + height / 4, text);
-//}
-// 
-//void Output::draw
-//void Output::drawelipse(Point elli,int width,int height) 
-//{
-	//pWind->DrawEllipse(elli.x, elli.y, elli.x + width, elli.y + height);
-	//pWind->DrawString(elli.x + width / 4, elli.y + height / 4, text);
-	//pWind->SetPen(BLACK, 2);
-//}
+	pWind->DrawLine(Left.x, Left.y, Left.x + width,Left.y);
+
+
+}
+
+void Output::drawcond(Point Left, int width, int height, string Text, bool Selected) 
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+	int xarr[4];
+	int yarr[4];
+	//Draw the statement block rectangle
+	xarr[0] = Left.x;
+	yarr[0] = Left.y;
+	xarr[1] = Left.x + (0.5 * width);
+	yarr[1] = Left.y + (0.5 * height);
+	xarr[2] = Left.x + width;
+	yarr[2] = Left.y;
+	xarr[3] = xarr[1];
+	yarr[3] = Left.y - (0.5 * height);
+	pWind->DrawPolygon(xarr, yarr, 4);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(xarr[0]+35,Left.y-10, Text);
+}
+
+void Output::drawellipse(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	//Draw the statement block rectangle
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 4, Left.y + height / 4, Text);
+}
+void Output::drawread(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+	int xarr2[4];	int yarr2[4];
+	//Draw the statement block rectangle
+	xarr2[0] = Left.x;
+	yarr2[0] = Left.y;
+
+	xarr2[1] = Left.x + width;
+	yarr2[1] = Left.y;
+
+	xarr2[2] = xarr2[1] - 30;
+	yarr2[2] = Left.y + height;
+
+	xarr2[3] = xarr2[2] - width;
+	yarr2[3] = yarr2[2];
+	pWind->DrawPolygon(xarr2, yarr2, 4);
+	
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(xarr2[0]+(1/2*width), Left.y + (1/2*height), Text);
+}
 //TODO: Add similar functions for drawing all other statements.
 //		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 //		Decide the parameters that should be passed to each of them

@@ -8,8 +8,10 @@
 
 int main()
 {
-
+	//int n;
 	Point P;
+	Point p2;
+	//Point* no2ta = new Point[n];
 
 	//Create Input and Output objects to test
 	Output *pOut = new Output();
@@ -84,11 +86,28 @@ int main()
 	///2.2- Variable assignment & single operator assignment
 	pOut->PrintMessage("Drawing other Assignment statements in ALL STATES, Click to continue");
 
+	P.x = 100;	P.y = 100;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " X = ");
+
+	//Drawing (highlighted) (empty) assignment statement --> STATE 2
+	P.x = 300;	P.y = 100;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " X = ", true);
+
+	//Drawing a resized empty assignment statement
+	P.x = 100;	P.y = 200;
+	pOut->DrawAssign(P, 80, UI.ASSGN_HI, "");
+	P.x = 100;	P.y = 200;
+	pOut->DrawAssign(P, 80, UI.ASSGN_HI, "",true);
+
+	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
+	P.x = 100;	P.y = 300;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+
+	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
+	P.x = 300;	P.y = 300;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "=", true);
 	//Note: for other type of assignment, you can use the same draw assignment function but passing a different text
 
-	////////////
-	//TODO: Add code to draw other types of assignment statements (Variable and Operator) here in ALL STATES
-	////////////
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -96,6 +115,35 @@ int main()
 	/// 2.3- Conditional statement test
 	//Drawing Conditional statements in all posible states
 	pOut->PrintMessage("Drawing Conditional Statement in ALL STATES, Click to continue");
+	P.x = 200; P.y = 150;
+	pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "conditional",true);
+	P.x = 400; P.y =150 ;
+	pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "conditional");
+	
+	P.x = 200; P.y = 400;
+	pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "", true);
+	P.x = 400; P.y = 400;
+	pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "");
+	//no2ta[0].x = 150;	no2ta.y = 150;
+	//pOut->drawcond(no2ta[],n, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+	//P.x = 300;	P.y = 100;
+	//pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+
+	//Drawing a resized empty assignment statement
+	//P.x = 100;	P.y = 200;
+	//pOut->drawcond(P, 80, UI.ASSGN_HI, " = ");
+
+	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
+	//P.x = 100;	P.y = 300;
+	//pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
+
+	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
+	//P.x = 300;	P.y = 300;
+	//pOut->drawcond(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
+
+	pIn->GetPointClicked(P);	//Wait for any click
+	pOut->ClearDrawArea();
+
 	
 	////////////
 	//TODO: Add code to draw different (Conditional) statements here in ALL STATES
@@ -107,10 +155,16 @@ int main()
 	/// 2.4- Read statement test
 	//Drawing Read statements in all posible states
 	pOut->PrintMessage("Drawing Read Statement in ALL STATES, Click to continue");
-	
-	////////////
-	//TODO: Add code to draw different (Read) statements here in ALL STATES
-	////////////
+	P.x = 200; P.y = 150;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "READ");
+	P.x = 400; P.y = 150;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI,"");
+
+	P.x = 200; P.y = 400;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "READ", true);
+	P.x = 400; P.y = 400;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "", true);
+
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -118,10 +172,17 @@ int main()
 	/// 2.5- Write statement test
 	//Drawing Write statements in all posible states
 	pOut->PrintMessage("Drawing Write Statement in ALL STATES, Click to continue");
+
+	P.x = 200; P.y = 150;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "WRITE");
+	P.x = 400; P.y = 150;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "");
+
+	P.x = 200; P.y = 400;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "WRITE", true);
+	P.x = 400; P.y = 400;
+	pOut->drawread(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "", true);
 	
-	////////////
-	//TODO: Add code to draw different (Write) statements here in ALL STATES
-	////////////
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -130,7 +191,22 @@ int main()
 	/// 2.6- Start & End statements test
 	//Drawing Start & End statements in all posible states
 	pOut->PrintMessage("Drawing Start & End Statements in ALL STATES, Click to continue");
-	
+	P.x = 300; P.y = 200;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI,"START");
+	P.x = 600; P.y = 200;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "END");
+
+	P.x = 300; P.y = 300;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "",true);
+	P.x = 600; P.y = 300;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "");
+
+	P.x = 300; P.y = 400;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "START",true);
+	P.x = 600; P.y =400;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "END",true);
+
+
 	////////////
 	//TODO: Add code to draw different (Start & End) statements here  in ALL STATES
 	////////////

@@ -28,6 +28,10 @@ public:
 
 	// -- Statements Drawing Functions
 	void DrawAssign(Point Left, int width, int height, string Text, bool Selected=false);
+	void Drawconnector(Point Left, int width, int height, bool Selected = false);
+	void drawcond(Point Left, int width, int height, string Text, bool Selected=false);
+	void drawellipse(Point Left, int width, int height, string Text, bool Selected = false);
+	void drawread(Point Left, int width, int height, string Text, bool Selected=false);
 
 	//TODO: Add similar functions for drawing all other statements.
 	//		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
