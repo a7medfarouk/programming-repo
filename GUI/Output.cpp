@@ -1,8 +1,6 @@
 #include "Output.h"
 
-//wwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-//ay 7aga
-//any commenttttttttt//do you copy//yes i dodddddddd
+//ezayyak ya bashmohandes. berra7a fel tas7ee7 please. :) 
 
 Output::Output()
 {
@@ -63,7 +61,7 @@ void Output::CreateStatusBar()
 void Output::CreateDesignToolBar() //Draws the Design Menu
 {
 	UI.AppMode = DESIGN;	//Design Mode
-	
+	cleartoolbar();
 	//fill the tool bar 
 		
 	//You can draw the tool bar icons in any way you want.
@@ -74,24 +72,23 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
 	MenuItemImages[ITM_START] = "images\\start1.jpg";
-	//MenuItemImages[ITM_END] = "images\\start1.jpg";
-	//MenuItemImages[ITM_VALUE_ASSIGN] = "images\\Assign.jpg";
-	//MenuItemImages[ITM_VAR_ASSIGN] = "images\\Assign.jpg";
-	//MenuItemImages[ITM_OPER_ASSIGN] = "images\\Assign.jpg";
-	//MenuItemImages[ITM_COND] = "images\\Condition.jpg";
-	//MenuItemImages[ITM_READ] = "images\\read.jpg";
-	//MenuItemImages[ITM_WRITE] = "images\\read.jpg";
-	//MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
-	//MenuItemImages[ITM_SELECT] = "images\\select icon.jpg";
-	//MenuItemImages[ITM_EDIT_STAT] = "images\\editicon.jpg";
-	////MenuItemImages[ITM_DELETE] = "images\\delete.jpg";
-	//MenuItemImages[ITM_COPY] = "images\\copy.jpg";
-	//MenuItemImages[ITM_CUT] = "images\\cut.jpg";
-	//MenuItemImages[ITM_PASTE] = "images\\paste.jpg";
-	//MenuItemImages[ITM_SAVE] = "images\\Save.jpg";
-	////MenuItemImages[ITM_SWITCH_SIM_MODE] = "images\\switch.jpg";
-	//MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
-
+	MenuItemImages[ITM_END] = "images\\start1.jpg";
+	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\Assign.jpg";
+	MenuItemImages[ITM_VAR_ASSIGN] = "images\\Assign.jpg";
+	MenuItemImages[ITM_OPER_ASSIGN] = "images\\Assign.jpg";
+	MenuItemImages[ITM_COND] = "images\\Condition.jpg";
+	MenuItemImages[ITM_READ] = "images\\read.jpg";
+	MenuItemImages[ITM_WRITE] = "images\\read.jpg";
+	MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
+	MenuItemImages[ITM_SELECT] = "images\\select icon.jpg";
+	MenuItemImages[ITM_EDIT_STAT] = "images\\editicon.jpg";
+	MenuItemImages[ITM_DELETE] = "images\\delete.jpg";
+	MenuItemImages[ITM_COPY] = "images\\copy.jpg";
+	MenuItemImages[ITM_CUT] = "images\\cut.jpg";
+	MenuItemImages[ITM_PASTE] = "images\\paste.jpg";
+	MenuItemImages[ITM_SAVE] = "images\\Save.jpg";
+	MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
+	MenuItemImages[ITM_SWITCH_SIM_MODE] = "images\\switch 2.jpg";
 
 
 
@@ -104,11 +101,31 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);	
 
 }
-//////////////////////////////////////////////////////////////////////////////////////////
-//TODO: Complete this function
+
+void Output::cleartoolbar()
+{
+	//Clears tool bar by drawing a filled white rectangle
+	pWind->SetPen(RED, 2);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
+}
+
+
 void Output::CreateSimulationToolBar() //Draws the Simulation Menu
 {
 	UI.AppMode = SIMULATION;	//Simulation Mode
+	cleartoolbar();
+	string MenuItemImages[SIM_ITM_CNT];
+	MenuItemImages[ITM_VALIDATE] = "images\\validate.jpg";
+	MenuItemImages[ITM_END] = "images\\run.jpg";
+	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\switch 2.jpg";
+
+	for (int i = 0; i < SIM_ITM_CNT; i++)
+		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 2);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 	///TODO: add code to create the simulation tool bar
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +143,7 @@ void Output::ClearDrawArea()
 	pWind->SetBrush(WHITE);
 	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.DrawingAreaWidth, UI.height - UI.StatusBarHeight);
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearOutputBar()
 {
@@ -165,22 +183,10 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 
 	//Draw the statement block rectangle
 	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height);
-		
+
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
 	pWind->DrawString(Left.x+width/4, Left.y + height/4, Text);
-}
-void Output::Drawconnector(Point Left, int width, int height, bool Selected)
-{
-	if (Selected)	//if stat is selected, it should be highlighted
-		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
-	else
-		pWind->SetPen(UI.DrawColor, 3);	//use normal color
-
-	//Draw the statement block rectangle
-	pWind->DrawLine(Left.x, Left.y, Left.x + width,Left.y);
-
-
 }
 
 void Output::drawcond(Point Left, int width, int height, string Text, bool Selected) 
@@ -191,7 +197,7 @@ void Output::drawcond(Point Left, int width, int height, string Text, bool Selec
 		pWind->SetPen(UI.DrawColor, 3);	//use normal color
 	int xarr[4];
 	int yarr[4];
-	//Draw the statement block rectangle
+	//Draw the rhombus(conditional)
 	xarr[0] = Left.x;
 	yarr[0] = Left.y;
 	xarr[1] = Left.x + (0.5 * width);
@@ -201,10 +207,12 @@ void Output::drawcond(Point Left, int width, int height, string Text, bool Selec
 	xarr[3] = xarr[1];
 	yarr[3] = Left.y - (0.5 * height);
 	pWind->DrawPolygon(xarr, yarr, 4);
-
+	int wi;
+	int he;
+	pWind->GetStringSize(wi,he,Text);
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(xarr[0]+35,Left.y-10, Text);
+	pWind->DrawString(xarr[0]+(0.35*width), yarr[0] - 10, Text);
 }
 
 void Output::drawellipse(Point Left, int width, int height, string Text, bool Selected)
@@ -214,12 +222,14 @@ void Output::drawellipse(Point Left, int width, int height, string Text, bool Se
 	else
 		pWind->SetPen(UI.DrawColor, 3);	//use normal color
 
-	//Draw the statement block rectangle
+	//Draw the start and end statements (ellipse)
 	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
-
+	int hei;
+	int wid;
+	pWind->GetStringSize(wid, hei, Text);
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x + width / 4, Left.y + height / 4, Text);
+	pWind->DrawString(Left.x + (0.5 * (width - wid)), Left.y + (0.5 * (height - hei)), Text);
 }
 void Output::drawread(Point Left, int width, int height, string Text, bool Selected)
 {
@@ -228,7 +238,7 @@ void Output::drawread(Point Left, int width, int height, string Text, bool Selec
 	else
 		pWind->SetPen(UI.DrawColor, 3);	//use normal color
 	int xarr2[4];	int yarr2[4];
-	//Draw the statement block rectangle
+	//DRAWS THE READ AND WRITE STATEMENTS (PARALLELOGRAM)
 	xarr2[0] = Left.x;
 	yarr2[0] = Left.y;
 
@@ -241,18 +251,27 @@ void Output::drawread(Point Left, int width, int height, string Text, bool Selec
 	xarr2[3] = xarr2[2] - width;
 	yarr2[3] = yarr2[2];
 	pWind->DrawPolygon(xarr2, yarr2, 4);
+	int w;
+	int h;
+	pWind->GetStringSize(w,h,Text);
 	
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(xarr2[0]+(1/2*width), Left.y + (1/2*height), Text);
+	pWind->DrawString(xarr2[0]+(0.5*(width-w)), yarr2[0]+(0.5*(height-h)), Text);
 }
-//TODO: Add similar functions for drawing all other statements.
-//		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
-//		Decide the parameters that should be passed to each of them
-	
-//TODO: Add DrawConnector function
 
-//////////////////////////////////////////////////////////////////////////////////////////
+void Output::Drawconnector(Point Left, int width, int height, bool Selected)
+{
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	//Draw the CONNECTOR.
+	pWind->DrawLine(Left.x, Left.y, Left.x + width, Left.y);
+
+
+}
 Output::~Output()
 {
 	delete pWind;

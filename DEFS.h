@@ -9,7 +9,6 @@ enum  MODE	//Modes of operation
 	SIMULATION
 };
 
-// TODO: Add any action type here
 enum ActionType // The actions supported
 {
 	ADD_START, //Add start statement
@@ -41,6 +40,8 @@ enum ActionType // The actions supported
 
 
 	//TODO: ADD THE ACTIONS OF SIMULATION MODE
+	VALIDATE,
+	RUN,
 
 
 	DRAWING_AREA,  //A click on the drawing area
@@ -54,41 +55,41 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
-	//ITM_START, //Add start statement
-	//ITM_END,  //Add end statement
+	ITM_START, //Add start statement
+	ITM_END,  //Add end statement
 
-	//ITM_VALUE_ASSIGN,    //simple assignment statement
-	//ITM_VAR_ASSIGN,	    //variable assignment statement
-	//ITM_OPER_ASSIGN,   //operator assignment statement
-	//ITM_COND,         //conditional statement
-	//ITM_READ,        //read statement
-	//ITM_WRITE,      //write statement
-	//ITM_CONNECTOR, //connector between two statements
+	ITM_VALUE_ASSIGN,    //simple assignment statement icon
+	ITM_VAR_ASSIGN,	    //variable assignment statement icon
+	ITM_OPER_ASSIGN,   //operator assignment statement icon
+	ITM_COND,         //conditional statement icon
+	ITM_READ,        //read statement icon
+	ITM_WRITE,      //write statement icon
+	ITM_CONNECTOR, //connector between two statements icon
 
-	//ITM_SELECT,		//select statement, a connector
-	//ITM_EDIT_STAT,	//Edit a statement
-	//ITM_DELETE,           //Delete a figure
-	//ITM_COPY,  //Copy a figure
-	//ITM_CUT,   //Cut a figure
-	//ITM_PASTE, //Paste a figure
+	ITM_SELECT,		//select icon
+	ITM_EDIT_STAT,	//Edit icon
+	ITM_DELETE,     //Delete icon
+	ITM_COPY,  //Copy icon
+	ITM_CUT,   //Cut a figure icon
+	ITM_PASTE, //Paste a figure icon
 
-	//ITM_SAVE,		//Save the whole graph to a file
+	ITM_SAVE,		//Save the whole graph to a file icon
 
-	////ITM_SWITCH_SIM_MODE,	//Switch to simulatiom mode
-	//ITM_EXIT,		//Exit
+	ITM_EXIT,		//Exit icon
+	ITM_SWITCH_SIM_MODE,	//Switch to simulatiom mode icon
+	
 	
 	DSN_ITM_CNT		//no. of design menu items ==> This should be the last line in this enum
 	
 };
 
-// TODO: you should add more items if needed
 enum SimMenuItem //The items of the simulation menu
 {
 	//Note: Items are ordered here as they appear in menu
-	ITM_VALIDATE,	//Validate
-	ITM_RUN,	    //Run
+	ITM_VALIDATE,	//Validate icon
+	ITM_RUN, //Run icon
+	ITM_SWITCHDES,//switch to design mode icon
 		
-	//TODO:Add more items names here
 	
 	SIM_ITM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
 	
