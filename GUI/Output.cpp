@@ -2,7 +2,8 @@
 
 //wwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 //ay 7aga
-//any commenttttttttt
+//any commenttttttttt//do you copy//yes i dodddddddd
+
 Output::Output()
 {
 	//Initialize user interface parameters
