@@ -4,9 +4,9 @@
 //tesst
 bool IsValue(string input)
 {
-	int size = input.length();
+	int size = input.size();
 	for (int i = 0; i < size; i++) {
-		int ch = input[i];
+		char ch = input[i];
 		if (!((ch >= 48 && ch <= 59) || ch == 45 || ch == 46)) {
 			return false;
 		}
@@ -23,7 +23,7 @@ bool IsValue(string input)
 
 bool IsVariable(string input)
 {
-	int firstch = input[0];
+	char firstch = input[0];
 	if ((firstch >= 97 && firstch <= 122) || (firstch >= 65 && firstch <= 90) || firstch == 95) {
 		return true;
 	}

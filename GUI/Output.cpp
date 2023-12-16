@@ -1,7 +1,6 @@
 #include "Output.h"
 
 //ezayyak ya bashmohandes. berra7a fel tas7ee7 please. :) 
-//hhha
 
 Output::Output()
 {
