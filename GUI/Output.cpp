@@ -71,14 +71,14 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//To control the order of these images in the menu, 
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
-	MenuItemImages[ITM_START] = "images\\start1.jpg";
-	MenuItemImages[ITM_END] = "images\\start1.jpg";
-	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\Assign.jpg";
-	MenuItemImages[ITM_VAR_ASSIGN] = "images\\Assign.jpg";
+	MenuItemImages[ITM_START] = "images\\start3.jpg";
+	MenuItemImages[ITM_END] = "images\\END.jpg";
+	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\valueassign.jpg";
+	MenuItemImages[ITM_VAR_ASSIGN] = "images\\varassign.jpg";
 	MenuItemImages[ITM_OPER_ASSIGN] = "images\\Assign.jpg";
-	MenuItemImages[ITM_COND] = "images\\Condition.jpg";
-	MenuItemImages[ITM_READ] = "images\\read.jpg";
-	MenuItemImages[ITM_WRITE] = "images\\read.jpg";
+	MenuItemImages[ITM_COND] = "images\\Cond.jpg";
+	MenuItemImages[ITM_READ] = "images\\read1.jpg";
+	MenuItemImages[ITM_WRITE] = "images\\write.jpg";
 	MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
 	MenuItemImages[ITM_SELECT] = "images\\select icon.jpg";
 	MenuItemImages[ITM_EDIT_STAT] = "images\\editicon.jpg";
@@ -87,6 +87,7 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	MenuItemImages[ITM_CUT] = "images\\cut.jpg";
 	MenuItemImages[ITM_PASTE] = "images\\paste.jpg";
 	MenuItemImages[ITM_SAVE] = "images\\Save.jpg";
+	MenuItemImages[ITM_LOAD] = "images\\load.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
 	MenuItemImages[ITM_SWITCH_SIM_MODE] = "images\\switch 2.jpg";
 
