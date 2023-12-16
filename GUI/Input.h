@@ -10,16 +10,21 @@ class Output;   //Class forward declaration
 class Input		//The application manager should have a pointer to this class
 {
 private:
-	window *pWind;	//Pointer to the Graphics Window
+	window* pWind;	//Pointer to the Graphics Window
 public:
-	Input(window *pW);		//Consturctor
-	void GetPointClicked(Point &P) const;//Gets coordinate where user clicks
-	
+	Input(window* pW);		//Consturctor
+	void GetPointClicked(Point& P) const;//Gets coordinate where user clicks
+
 	//TODO: Complete the implementation of the following function
 	double GetValue(Output* pO) const;	// Reads a double value from the user 
 
-	string GetString(Output* pO) const ; //Returns a string entered by the user
+	string GetString(Output* pO) const; //Returns a string entered by the user
 
+	string GetVariable(Output* pO) const;
+
+	string GetArithOperator(Output* pO) const;
+
+	string GetCompOperator(Output* pO) const;
 	//TODO: Add the function Input::GetVariable 
 	// to read a “variable name” from the user (from the keyboard). 
 	// It does not return before taking a valid variable name.
