@@ -29,7 +29,7 @@ public:
 
 	// -- Statements Drawing Functions
 	void DrawAssign(Point Left, int width, int height, string Text, bool Selected=false);//drawing the rectangle (assignment)
-	void Drawconnector(Point Left, int width, int height, bool Selected = false);//drawing the connector.
+	void Drawconnector(Point ONE, Point TWO, bool Selected = false);//drawing the connector.
 	void drawcond(Point Left, int width, int height, string Text, bool Selected=false);//drawing the rhombus(conditional)
 	void drawellipse(Point Left, int width, int height, string Text, bool Selected = false);//draws the ellipse(start and end statements
 	void drawread(Point Left, int width, int height, string Text, bool Selected=false);//draws the parallelogram(read and write

@@ -11,6 +11,8 @@ int main()
 	//int n;
 	Point P;
 	Point p2;
+	Point p3;
+	Point p4;
 	//Point* no2ta = new Point[n];
 
 	//Create Input and Output objects to test
@@ -213,10 +215,30 @@ int main()
 	/// 2.7- Connector test
 	//Drawing Connector in all posible states
 	pOut->PrintMessage("Drawing Connector in Normal and Highlighted STATES, Click to continue");
-	
-	////////////
-	//TODO: Add code to draw different (Connectors) here:  Normal and Highlighted
-	////////////
+	P.x = 300;	P.y = 200;
+	p2.x = 200; p2.y = 300;
+	pOut->Drawconnector(P,p2);
+
+	P.x = 400;	P.y = 200;
+	p2.x = 500; p2.y = 300;
+	pOut->Drawconnector(P, p2,true);
+
+	P.x = 600;	P.y = 200;
+	p2.x = 700; p2.y = 200;
+	pOut->Drawconnector(P, p2);
+
+	P.x =600 ;	P.y = 300 ;
+	p2.x = 700; p2.y = 300;
+	pOut->Drawconnector(P, p2, true);
+
+	P.x = 300;	P.y = 400;
+	p2.x = 500; p2.y = 400;
+	p3.x = P.x + UI.ASSGN_WDTH; p3.y = P.y + 20;
+	p4.x = p2.x; p4.y = p2.y + 20;
+	pOut->drawellipse(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "START");
+	pOut->drawellipse(p2, UI.ASSGN_WDTH, UI.ASSGN_HI, "END");
+	pOut->Drawconnector(p3, p4, true);
+
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();

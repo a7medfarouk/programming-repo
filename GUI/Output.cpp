@@ -260,7 +260,7 @@ void Output::drawread(Point Left, int width, int height, string Text, bool Selec
 	pWind->DrawString(xarr2[0]+(0.5*(width-w)), yarr2[0]+(0.5*(height-h)), Text);
 }
 
-void Output::Drawconnector(Point Left, int width, int height, bool Selected)
+void Output::Drawconnector(Point ONE, Point TWO, bool Selected)
 {
 	if (Selected)	//if stat is selected, it should be highlighted
 		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
@@ -268,10 +268,46 @@ void Output::Drawconnector(Point Left, int width, int height, bool Selected)
 		pWind->SetPen(UI.DrawColor, 3);	//use normal color
 
 	//Draw the CONNECTOR.
-	pWind->DrawLine(Left.x, Left.y, Left.x + width, Left.y);
+	int p1x = ONE.x;
+	int p1y = ONE.y;
+	int p2x = TWO.x;
+	int p2y = TWO.y;
+	if (p2y == p1y) 
+	{
+	pWind->DrawLine(p1x, p1y, p2x, p1y);
+	if (p2x > p1x)
+	{
+		pWind->DrawLine(p2x, p2y, p2x - 10, p1y + 10);
+		pWind->DrawLine(p2x, p2y, p2x - 10, p1y - 10);
+	}
+	else
+	{
+		pWind->DrawLine(p2x, p2y, p2x + 10, p1y + 10);
+		pWind->DrawLine(p2x, p2y, p2x + 10, p1y - 10);
+	}
+    }
+	else if (p2x == p1x)
+	{
+		pWind->DrawLine(p1x, p1y, p2x, p2y);
+		if (p2y > p1y)
+		{
+			pWind->DrawLine(p2x, p2y, p2x + 10, p2y - 10);
+			pWind->DrawLine(p2x, p2y, p2x - 10, p2y - 10);
+		}
+	}
+	else 
+	{
 
-
+	
+			pWind->DrawLine(p1x, p1y, p2x, p1y);
+			pWind->DrawLine(p2x, p1y, p2x, p2y);
+			pWind->DrawLine(p2x, p2y, p2x + 10, p2y - 10);
+			pWind->DrawLine(p2x, p2y, p2x - 10, p2y - 10);
+	
+	}
 }
+
+
 Output::~Output()
 {
 	delete pWind;
