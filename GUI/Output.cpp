@@ -71,7 +71,7 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//To control the order of these images in the menu, 
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
-	MenuItemImages[ITM_START] = "images\\start3.jpg";
+	MenuItemImages[ITM_START] = "images\\start1.jpg";
 	MenuItemImages[ITM_END] = "images\\END.jpg";
 	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\valueassign.jpg";
 	MenuItemImages[ITM_VAR_ASSIGN] = "images\\varassign.jpg";

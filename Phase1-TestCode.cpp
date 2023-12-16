@@ -36,14 +36,14 @@ int main()
 	// 5- -- REPEAT the same first 3 steps to test: ValueORVariable(...) helper function
 	////////////
 	pOut->PrintMessage("TEST0: Testing the helper functions");
-	string Value = pIn->GetString(pOut);
-	if (IsValue(Value)) pOut->PrintMessage("Is a value");
+	string Val = pIn->GetString(pOut);
+	if (IsValue(Val)) pOut->PrintMessage("Is a value");
 	else pOut->PrintMessage("Is not a value");
 	pIn->GetPointClicked(P);
 
 	pOut->PrintMessage("TEST1: Testing the helper functions");
-	string Variable = pIn->GetString(pOut);
-	if (IsVariable(Variable)) pOut->PrintMessage("Is a variable");
+	string Vari = pIn->GetString(pOut);
+	if (IsVariable(Vari)) pOut->PrintMessage("Is a variable");
 	else pOut->PrintMessage("Is not a variable");
 	pIn->GetPointClicked(P);
 
@@ -161,14 +161,14 @@ int main()
 	P.x = 400; P.y = 400;
 
 	//Create Input and Output objects to test
-	pOut->PrintMessage("TEST0: Testing the input functions");
-	double value = pIn->GetValue(pOut);
-	pOut->PrintMessage("The value " + to_string(value));
+	/*pOut->PrintMessage("TEST0: Testing the input functions");
+	double va = pIn->GetValue(pOut);
+	pOut->PrintMessage("The value " + to_string(va));
 	pIn->GetPointClicked(P);
 
 	pOut->PrintMessage("TEST1: Testing the input functions");
-	string variable = pIn->GetVariable(pOut);
-	pOut->PrintMessage("The variable "+ variable);
+	string var = pIn->GetVariable(pOut);
+	pOut->PrintMessage("The variable "+ var);
 	pIn->GetPointClicked(P);
 
 	pOut->PrintMessage("TEST2: Testing the input functions");
@@ -179,7 +179,7 @@ int main()
 	pOut->PrintMessage("TEST3: Testing the input functions");
 	string compOperator = pIn->GetCompOperator(pOut);
 	pOut->PrintMessage("The compOperator " + compOperator);
-	pIn->GetPointClicked(P);
+	pIn->GetPointClicked(P);*/
 
 	/*pOut->PrintMessage("TEST4: Testing the input function ");
 	ActionType getuseraction = pIn->GetUserAction();
