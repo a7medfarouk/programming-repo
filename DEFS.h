@@ -74,6 +74,7 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 	ITM_PASTE, //Paste a figure icon
 
 	ITM_SAVE,		//Save the whole graph to a file icon
+	ITM_LOAD,
 
 	ITM_EXIT,		//Exit icon
 	ITM_SWITCH_SIM_MODE,	//Switch to simulatiom mode icon

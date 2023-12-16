@@ -266,9 +266,7 @@ ActionType Input::GetUserAction() const
 			{
 			case ITM_VALIDATE: return VALIDATE;
 			case ITM_RUN: return RUN;
-			case ITM_END: return END;
-			case ITM_SWITCH_DSN_MODE: return SWITCH_DSN_MODE;
-			default: return SIM_TOOL;
+			case ITM_SWITCHDES: return SWITCH_DSN_MODE;
 			}
 		}
 		//[2] User clicks on the drawing area
