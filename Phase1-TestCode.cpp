@@ -26,6 +26,7 @@ int main()
 	pOut->PrintMessage("TEST0: Testing the helper functions");
 	pIn->GetPointClicked(P);	//Wait for any click
 
+
 	////////////
 	//TODO: Add code here to 
 	// 1- Read a (string) from the user --> just call the already impemented Input::GetString(...) fn
@@ -34,6 +35,24 @@ int main()
 	// 4- -- REPEAT the same previous 3 steps to test: IsVariable(...) helper function
 	// 5- -- REPEAT the same first 3 steps to test: ValueORVariable(...) helper function
 	////////////
+	pOut->PrintMessage("TEST0: Testing the helper functions");
+	string Value = pIn->GetString(pOut);
+	if (IsValue(Value)) pOut->PrintMessage("Is a value");
+	else pOut->PrintMessage("Is not a value");
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST1: Testing the helper functions");
+	string Variable = pIn->GetString(pOut);
+	if (IsVariable(Variable)) pOut->PrintMessage("Is a variable");
+	else pOut->PrintMessage("Is not a variable");
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST2: Testing the helper functions");
+	string input = pIn->GetString(pOut);
+	if (ValueOrVariable(input) == VALUE_OP) pOut->PrintMessage("Is a value");
+	else if (ValueOrVariable(input) == VARIABLE_OP) pOut->PrintMessage("Is a variable");
+	else pOut->PrintMessage("InValid");
+	pIn->GetPointClicked(P);	//Wait for any click
 
 	//Starting the input and output classes test
 	pOut->PrintMessage("This demo is to test input and output classes, Click anywhere to start the test");
@@ -139,7 +158,37 @@ int main()
 	// DRAWING RESIZED NORMAL AND HIGHLIGHTED EMPTY COND STATEMENTS//
 	P.x = 200; P.y = 400;
 	pOut->drawcond(P, 80, UI.ASSGN_HI, "", true);
-	P.x = 400; P.y = 400;
+	P.x = 400; P.y = 400;	Point P;
+
+	//Create Input and Output objects to test
+	Output *pOut = new Output();
+	Input *pIn = pOut->CreateInput();
+
+	pOut->PrintMessage("TEST0: Testing the input functions");
+	double value = pIn->GetValue(pOut);
+	pOut->PrintMessage("The value " + to_string(value));
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST1: Testing the input functions");
+	string variable = pIn->GetVariable(pOut);
+	pOut->PrintMessage("The variable "+ variable);
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST2: Testing the input functions");
+	string arthOperator = pIn->GetArithOperator(pOut);
+	pOut->PrintMessage("The arthimaticOperator " + arthOperator);
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST3: Testing the input functions");
+	string compOperator = pIn->GetCompOperator(pOut);
+	pOut->PrintMessage("The compOperator " + compOperator);
+	pIn->GetPointClicked(P);
+
+	/*pOut->PrintMessage("TEST4: Testing the input function ");
+	ActionType getuseraction = pIn->GetUserAction();
+	pOut->PrintMessage("The GetUserAction " + getuseraction);
+	pIn->GetPointClicked(P);*/
+
 	pOut->drawcond(P, 80, UI.ASSGN_HI, "");
 
 
@@ -255,7 +304,8 @@ int main()
 	// 1- Get a String from the user --> using the already-implemented Input::GetString(...) fn
 	// 2- Draw that string in location (400, 200) --> using the already-implemented Output::DrawString(...) fn
 	////////////
-	pOut->DrawString(400,200,"the input from get string");//draws the string that its gets from the input of the user.
+	string Str=pIn->GetString(pOut);
+	pOut->DrawString(400,200,Str);//draws the string that its gets from the input of the user.
 
 
 	pIn->GetPointClicked(P);	//Wait for any click
@@ -268,6 +318,26 @@ int main()
 	pIn->GetPointClicked(P);	//Wait for any click
 	
 	pOut->PrintMessage("Testing Input ability to read strings, values, variables and operators");
+
+	pOut->PrintMessage("TEST0: Testing the input functions");
+	double value = pIn->GetValue(pOut);
+	pOut->PrintMessage("The value " + to_string(value));
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST1: Testing the input functions");
+	string variable = pIn->GetVariable(pOut);
+	pOut->PrintMessage("The variable " + variable);
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST2: Testing the input functions");
+	string arthOperator = pIn->GetArithOperator(pOut);
+	pOut->PrintMessage("The arthimaticOperator " + arthOperator);
+	pIn->GetPointClicked(P);
+
+	pOut->PrintMessage("TEST3: Testing the input functions");
+	string compOperator = pIn->GetCompOperator(pOut);
+	pOut->PrintMessage("The compOperator " + compOperator);
+	pIn->GetPointClicked(P);
 
 	////////////
 	//TODO: Add code here to 
@@ -298,8 +368,31 @@ int main()
 
 		switch (ActType)
 		{
+		case ADD_START:
+			pOut->PrintMessage("Action: add start statement , Click anywhere");
+			break;
+		case ADD_END:
+			pOut->PrintMessage("Action: add end statement , Click anywhere");
+			break;
+
 			case ADD_VALUE_ASSIGN:
 				pOut->PrintMessage("Action: add value assignment statement , Click anywhere");
+				break;
+
+			case ADD_VAR_ASSIGN:
+				pOut->PrintMessage("Action: add variable assignment statement , Click anywhere");
+				break;
+
+			case ADD_OPER_ASSIGN:
+				pOut->PrintMessage("Action: add operator assignment statement , Click anywhere");
+				break;
+
+			case ADD_READ:
+				pOut->PrintMessage("Action: add read statement , Click anywhere");
+				break;
+
+			case ADD_WRITE:
+				pOut->PrintMessage("Action: add write statement , Click anywhere");
 				break;
 
 			case ADD_CONDITION:
@@ -308,6 +401,26 @@ int main()
 
 			case ADD_CONNECTOR:
 				pOut->PrintMessage("Action: add a connector , Click anywhere");
+				break;
+
+			case DEL:
+				pOut->PrintMessage("Action: delete a figure , Click anywhere");
+				break;
+
+			case COPY:
+				pOut->PrintMessage("Action: copy a figure , Click anywhere");
+				break;
+
+			case CUT:
+				pOut->PrintMessage("Action: cut a figure , Click anywhere");
+				break;
+
+			case PASTE:
+				pOut->PrintMessage("Action: paste a figure , Click anywhere");
+				break;
+
+			case EDIT_STAT:
+				pOut->PrintMessage("Action: edit a statement, Click anywhere");
 				break;
 
 			case SELECT:
