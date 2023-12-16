@@ -158,12 +158,9 @@ int main()
 	// DRAWING RESIZED NORMAL AND HIGHLIGHTED EMPTY COND STATEMENTS//
 	P.x = 200; P.y = 400;
 	pOut->drawcond(P, 80, UI.ASSGN_HI, "", true);
-	P.x = 400; P.y = 400;	Point P;
+	P.x = 400; P.y = 400;
 
 	//Create Input and Output objects to test
-	Output *pOut = new Output();
-	Input *pIn = pOut->CreateInput();
-
 	pOut->PrintMessage("TEST0: Testing the input functions");
 	double value = pIn->GetValue(pOut);
 	pOut->PrintMessage("The value " + to_string(value));
