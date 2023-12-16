@@ -14,7 +14,7 @@ Output::Output()
 
 	UI.StatusBarHeight = 50;
 	UI.ToolBarHeight = 50;
-	UI.MenuItemWidth = 50;
+	UI.MenuItemWidth = 70;
 	UI.DrawingAreaWidth = 0.75 * UI.width;
 
 	UI.DrawColor = BLUE;
@@ -71,12 +71,12 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//To control the order of these images in the menu, 
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
-	MenuItemImages[ITM_START] = "images\\start1.jpg";
+	MenuItemImages[ITM_START] = "images\\start3.jpg";
 	MenuItemImages[ITM_END] = "images\\END.jpg";
 	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\valueassign.jpg";
 	MenuItemImages[ITM_VAR_ASSIGN] = "images\\varassign.jpg";
 	MenuItemImages[ITM_OPER_ASSIGN] = "images\\Assign.jpg";
-	MenuItemImages[ITM_COND] = "images\\Cond.jpg";
+	MenuItemImages[ITM_COND] = "images\\Condition.jpg";
 	MenuItemImages[ITM_READ] = "images\\read1.jpg";
 	MenuItemImages[ITM_WRITE] = "images\\write.jpg";
 	MenuItemImages[ITM_CONNECTOR] = "images\\connector.jpg";
